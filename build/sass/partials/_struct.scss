@@ -1,0 +1,38 @@
+/* Structure */
+
+
+img {
+	display: block;	
+	max-width: 100%;
+	height: auto;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.text-hide {
+  font: "0/0" a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+  visibility: hidden;
+}
+
+.menu-mobile {
+	display: none;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
+}

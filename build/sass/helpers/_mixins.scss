@@ -1,0 +1,90 @@
+/* Mixins */
+@mixin display-flex() {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+
+@mixin align-vertical($offset) {
+	position: relative;
+	top: 50% - $offset;
+	transform: translateY(-50%);
+}
+
+@mixin align-reset() {
+	top: auto;
+	transform: initial;
+}
+
+
+
+$break-sm: 34em;
+$break-md: 48em;
+$break-lg: 62em;
+$break-xl: 75em;
+
+@mixin media($media) {
+	@if $media == screen-xs {
+		@media only screen and (max-width: $break-sm - 1) { @content; }
+	}
+	@else if $media == screen-sm {
+		@media only screen and (min-width: $break-sm) /*and (max-width: $break-md - 1)*/ { @content; }
+	}
+	@else if $media == screen-md {
+		@media only screen and (min-width: $break-md) /*and (max-width: $break-lg - 1)*/ { @content; }
+	}
+	@else if $media == screen-lg {
+		@media only screen and (min-width: $break-lg) { @content; }
+	}
+	@else if $media == screen-xl {
+		@media only screen and (min-width: $break-xl) { @content; }
+	}
+}
+
+$break-h-sm: 34rem;
+$break-h-md: 44rem;
+$break-h-lg: 54rem;
+$break-h-xl: 64rem;
+
+@mixin media-h($media) {
+	@if $media == screen-xs {
+		@media only screen and (max-height: $break-h-sm - 1) { @content; }
+	}
+	@else if $media == screen-sm {
+		@media only screen and (min-height: $break-h-sm) /*and (max-height: $break-md - 1)*/ { @content; }
+	}
+	@else if $media == screen-md {
+		@media only screen and (min-height: $break-h-md) /*and (max-height: $break-lg - 1)*/ { @content; }
+	}
+	@else if $media == screen-lg {
+		@media only screen and (min-height: $break-h-lg) { @content; }
+	}
+	@else if $media == screen-xl {
+		@media only screen and (min-height: $break-h-xl) { @content; }
+	}	
+}
+
+@mixin media-ie-fix($media) {
+
+	@if $media == screen-xs {
+		@media all and (max-width: $break-sm - 1) and (-ms-high-contrast: none), (-ms-high-contrast: active)  { @content; }
+	}
+	@else if $media == screen-sm {
+		@media all and (min-width: $break-sm) and (-ms-high-contrast: none), (-ms-high-contrast: active) /*and (max-width: $break-md - 1)*/ { @content; }
+	}
+	@else if $media == screen-md {
+		@media all and (min-width: $break-md) and (-ms-high-contrast: none), (-ms-high-contrast: active) /*and (max-width: $break-lg - 1)*/ { @content; }
+	}
+	@else if $media == screen-lg {
+		@media all and (min-width: $break-lg) and (-ms-high-contrast: none), (-ms-high-contrast: active) { @content; }
+	}
+	@else if $media == screen-xl {
+		@media all and (min-width: $break-xl) and (-ms-high-contrast: none), (-ms-high-contrast: active) { @content; }
+	}
+}
+
+@mixin ie-fix() {
+	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) { @content; }
+}
